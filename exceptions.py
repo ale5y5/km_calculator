@@ -12,3 +12,18 @@ class MalformedPrefixNotationError(Exception):
     """
 
     pass
+
+
+class InvalidParenthesesError(Exception):
+    """Raised when an invalid parentheses config is encountered in the expression.
+
+    Examples: no opening and closing parentheses for the overall expression, not an equal number of open and close
+    parentheses, unexpected order of parentheses ())(."""
+
+    pass
+
+
+class MalformedInfixNotationError(Exception):
+    """Raised when the infix expression is malformed."""
+
+    pass

@@ -2,15 +2,9 @@ import logging
 from collections import deque
 
 from exceptions import InvalidCharacterError, MalformedPrefixNotationError
+from operations import OPERATORS
 
 logger = logging.getLogger(__name__)
-
-OPERATORS = {
-    "+": lambda a, b: a + b,
-    "-": lambda a, b: a - b,
-    "*": lambda a, b: a * b,
-    "/": lambda a, b: a / b,
-}
 
 
 def evaluate_prefix_notation(expression):
@@ -77,7 +71,7 @@ def evaluate_prefix_notation(expression):
 def main():
     print("Type 'exit' to end program.")
     while True:
-        expression = input("Please enter an expression to be evaluated: ")
+        expression = input("Please enter a prefix expression to be evaluated: ")
         if expression == "exit":
             break
         try:

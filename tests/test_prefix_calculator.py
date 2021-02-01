@@ -62,5 +62,4 @@ def test_prefix_calculator_when_it_raises_exception(expression, exception_type, 
 
     # then
     # ... the expected error type and message are raised
-    # assert error.type == InvalidCharacterError
     assert error.value.args[0] == exception_msg
