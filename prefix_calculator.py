@@ -2,7 +2,7 @@ import logging
 from collections import deque
 
 from exceptions import InvalidCharacterError, MalformedPrefixNotationError
-from operations import OPERATORS
+from operations import PREFIX_OPERATORS, cast_float_to_int_if_no_decimals
 
 logger = logging.getLogger(__name__)
 
@@ -31,8 +31,8 @@ def evaluate_prefix_notation(expression):
         raise MalformedPrefixNotationError("The provided expression does not contain any characters.")
 
     for c in expression[::-1]:
-        if c in OPERATORS.keys():
-            operation = OPERATORS[c]
+        if c in PREFIX_OPERATORS.keys():
+            operation = PREFIX_OPERATORS[c]
             # apply operator to the latest 2 values from the stack, but only push result to stack on next space char
             try:
                 value = operation(stack.pop(), stack.pop())
@@ -65,7 +65,7 @@ def evaluate_prefix_notation(expression):
 
     # return the latest calculated value - we haven't pushed it to the stack yet
     # since there is no preceding "space" on which to do it
-    return int(value) if isinstance(value, float) and value.is_integer() else value
+    return cast_float_to_int_if_no_decimals(value)
 
 
 def main():
