@@ -76,7 +76,7 @@ def main():
             break
         try:
             result = evaluate_prefix_notation(expression)
-            print(f" The result of evaluating expression {expression} in prefix notation is {result}.")
+            print(f"The result of evaluating expression {expression} in prefix notation is {result}.")
         except (InvalidCharacterError, MalformedPrefixNotationError, ZeroDivisionError) as e:
             print(f"Failed to evaluate expression: {e}")
 

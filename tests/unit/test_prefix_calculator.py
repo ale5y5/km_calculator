@@ -17,6 +17,14 @@ from prefix_calculator import evaluate_prefix_notation
         ["/ 3 2", 1.5],
         ["* / + - 12 987 323 111 1023", (((12 - 987) + 323) / 111) * 1023],
         ["+ + 1 2 - 4 3", 4],
+        ["+ 5000 / 1000000 + 1000 0", 6000],
+        ["+ / + 5000 1000000 1000 0", 1005],
+        ["+ 0 - 0 + 0 + 0 / 1 1", -1],
+        ["+ 0 - 0 * 0 + 0 / 1 1", 0],
+        [
+            "+ 1307993905256673975767120421215822522657964858038981454399109360803651185455244290152830052265253733065911465963809993683089776960073625541502023629723947119620918917825223508962533521125777727280023703876104306028269279939868013618062200188730110219063866757530095479450736063434158250346338582528 109836762562089755439710412785302291476310964802292886550311415346968690934362496833960954250583272879636740982263693728593951807995466301001184452657840914432",
+            (2**987)+(2**525)
+        ],
     ),
 )
 def test_prefix_calculator_success(expression, expected):
@@ -50,6 +58,8 @@ def test_prefix_calculator_success(expression, expected):
         ["5 + + 1 2 - 4 3", MalformedPrefixNotationError, "There were too many values and not enough operators."],
         # more than one operand and no operators
         ["5 10", MalformedPrefixNotationError, "There were too many values and not enough operators."],
+        # zero division error
+        ["/ 5 0", ZeroDivisionError, "division by zero"],
     ),
 )
 def test_prefix_calculator_when_it_raises_exception(expression, exception_type, exception_msg):

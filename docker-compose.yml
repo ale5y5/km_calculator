@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  km_calculator:
+    container_name: km_calculator
+    image: km_calculator
+    stdin_open: true
+    ports:
+      - "3456:3456"
+    volumes:
+      # autoreload
+      - .:/var/km_calculator/
+    environment:
+      - DEBUG=True

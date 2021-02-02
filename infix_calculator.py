@@ -89,8 +89,8 @@ def main():
             break
         try:
             result = evaluate_infix_notation(expression)
-            print(f" The result of evaluating expression {expression} in infix notation is {result}.")
-        except (InvalidCharacterError, MalformedInfixNotationError, ZeroDivisionError) as e:
+            print(f"The result of evaluating expression {expression} in infix notation is {result}.")
+        except (InvalidCharacterError, InvalidParenthesesError, MalformedInfixNotationError, ZeroDivisionError) as e:
             print(f"Failed to evaluate expression: {e}")
 
 
