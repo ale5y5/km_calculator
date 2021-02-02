@@ -30,7 +30,7 @@ To run tests, from the root of the project:
 From the root of the project:  
 `docker build . -t km_calculator`  
 `docker-compose up -d`  
-This will start a webserver on localhost:3456 where you can reach the two calculators on these 2 endpoints: `/calculator/infix` and `/calculator/prefix`.  
+This will start a webserver on localhost:3456 where you can reach the two calculators on these 2 endpoints: `/calculator/infix/` and `/calculator/prefix/`.  
 I decided to go with Flask which is lightweight compared to Django.
 
 These endpoints accept POST with a payload like:  
