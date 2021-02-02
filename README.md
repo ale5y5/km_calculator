@@ -36,7 +36,7 @@ I decided to go with Flask which is lightweight compared to Django.
 These endpoints accept POST with a payload like:  
 `{"expression": "+ 2 3"}` or `{"expression": "( + 2 3 )"}`
 
-Example calls:  
+Example calls (can be tested via Postman):  
 GET @ `http://localhost:3456/status/`  
 POST @ `http://localhost:3456/calculator/prefix/` with payload `{"expression": "+ 5000 / 1000000 + 1000 0"}`  
 POST @ `http://localhost:3456/calculator/infix/` with payload `{"expression": "( + 2 3 )"}`  
